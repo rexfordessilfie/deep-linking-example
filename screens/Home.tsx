@@ -12,10 +12,10 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Button
         title="Go to Wojciech's profile"
-        onPress={() => linkTo("/stack/user/Wojciech?age=22")}
+        onPress={() => linkTo("/user/Wojciech?age=22")}
       />
       <Button
-        title="Go to unknown profile"
+        title="Go to My profile"
         onPress={() => navigation.navigate("Profile")}
       />
     </View>

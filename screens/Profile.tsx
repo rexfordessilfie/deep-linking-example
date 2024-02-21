@@ -1,7 +1,9 @@
 import { StackScreenProps } from "@react-navigation/stack";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { ScreenPathConfig, HomeStackParamList } from "../types";
 import { Routes } from "../routes";
+import { useCallback, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 type ProfileScreenProps = StackScreenProps<
   HomeStackParamList,
@@ -9,6 +11,10 @@ type ProfileScreenProps = StackScreenProps<
 >;
 
 export function Profile({ route }: ProfileScreenProps) {
+  const { signOut } = useContext(AuthContext);
+  const handleSignOut = useCallback(() => {
+    signOut();
+  }, []);
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Hello {route.params?.id || "Unknown"}!</Text>
@@ -17,6 +23,8 @@ export function Profile({ route }: ProfileScreenProps) {
         Type of age parameter is{" "}
         {route.params?.age ? typeof route.params.age : "undefined"}
       </Text>
+
+      <Button title="Sign Out" onPress={handleSignOut} />
     </View>
   );
 }

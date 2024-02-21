@@ -3,4 +3,5 @@ export const Routes = {
   Settings: "Settings",
   Home: "Home",
   Profile: "Profile",
+  SignIn: "SignIn",
 } as const;

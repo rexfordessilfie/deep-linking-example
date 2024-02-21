@@ -12,9 +12,10 @@ export type HomeStackParamList = {
     id: string;
     age?: number;
   };
+  [Routes.SignIn]: undefined;
 };
 
 export type ScreenPathConfig<
   ParamList extends {},
-  K extends keyof ParamList
+  K extends keyof ParamList,
 > = PathConfigMap<ParamList>[K];
