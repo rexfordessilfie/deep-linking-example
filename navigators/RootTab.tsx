@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { Settings } from "../screens";
 import { Routes } from "../routes";
 import { HomeStack } from "./HomeStack";
+import { useHandleDeepLinkCache } from "../hooks/useHandleDeepLinkCache";
 
 const Tab = createBottomTabNavigator<RootParamList>();
 type RootTabProps = {};
@@ -16,6 +17,9 @@ export const RootTab = ({}: RootTabProps) => {
     }),
     [],
   );
+
+  // Mount hook to handle cached deep links
+  useHandleDeepLinkCache();
 
   return (
     <Tab.Navigator screenOptions={screenOptions}>

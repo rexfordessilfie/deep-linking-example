@@ -2,7 +2,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { View, Button, TextInput } from "react-native";
 import { ScreenPathConfig, HomeStackParamList } from "../types";
 import { Routes } from "../routes";
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 type SigninScreenProps = StackScreenProps<

@@ -10,7 +10,7 @@ type ProfileScreenProps = StackScreenProps<
   typeof Routes.Profile
 >;
 
-export function Profile({ route }: ProfileScreenProps) {
+export function Profile({ route, navigation }: ProfileScreenProps) {
   const { signOut } = useContext(AuthContext);
   const handleSignOut = useCallback(() => {
     signOut();
@@ -24,6 +24,7 @@ export function Profile({ route }: ProfileScreenProps) {
         {route.params?.age ? typeof route.params.age : "undefined"}
       </Text>
 
+      <Button title="Home" onPress={() => navigation.navigate(Routes.Home)} />
       <Button title="Sign Out" onPress={handleSignOut} />
     </View>
   );

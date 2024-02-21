@@ -21,7 +21,9 @@ export const HomeStack = ({}: HomeStackProps) => {
   const { isSignedIn } = useContext(AuthContext);
   console.log("isSignedIn ", isSignedIn);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName={isSignedIn ? Routes.Home : Routes.SignIn}
+    >
       {isSignedIn ? (
         <>
           <Stack.Screen name={Routes.Home} component={HomeScreen} />
@@ -41,6 +43,7 @@ export const HomeStackPathConfig: ScreenPathConfig<
   typeof Routes.HomeStack
 > = {
   path: "/",
+  initialRouteName: Routes.Home,
   screens: {
     [Routes.Profile]: ProfilePathConfig,
     [Routes.Home]: HomePathConfig,
